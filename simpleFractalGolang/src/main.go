@@ -13,7 +13,7 @@ var (
 	width  int
 	height int
 	div    int
-	rad    int
+	rad    float64
 )
 
 func drawCircle(x float64, y float64, radius float64, dc *gg.Context) {
@@ -38,7 +38,7 @@ func draw() {
 	dc.SetRGB(0, 0, 0)
 	dc.DrawRectangle(0, 0, float64(width), float64(height))
 	dc.Fill()
-	drawCircle(float64(width)/2, float64(height)/2, float64(rad), dc)
+	drawCircle(float64(width)/2, float64(height)/2, rad, dc)
 	if xy {
 		dc.SavePNG("../images/circleFractalXY.png")
 	} else {
@@ -52,10 +52,11 @@ func init() {
 	flag.BoolVar(&xy, "xy", false, "xy")
 	flag.BoolVar(&help, "help", false, "h")
 
-	flag.IntVar(&rad, "r", 100, "radius")
 	flag.IntVar(&div, "div", 2, "division of radius")
 	flag.IntVar(&width, "w", 1000, "widht of the image")
 	flag.IntVar(&height, "h", 500, "height of image")
+
+	flag.Float64Var(&rad, "r", 100, "radius")
 
 	flag.Parse()
 
@@ -63,7 +64,7 @@ func init() {
 func main() {
 	if !help {
 		fmt.Println("-help")
-		fmt.Printf("the radius is \033[31m%d\n\033[0m", rad)
+		fmt.Printf("the radius is \033[31m%f\n\033[0m", rad)
 		draw()
 		fmt.Println("\033[34mfractal circle finished\033[0m")
 	} else {
