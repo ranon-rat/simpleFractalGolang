@@ -48,7 +48,7 @@ func draw() {
 }
 
 func init() {
-
+	//commands
 	flag.BoolVar(&xy, "xy", false, "xy")
 	flag.BoolVar(&help, "help", false, "h")
 
