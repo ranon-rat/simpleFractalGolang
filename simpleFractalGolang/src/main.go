@@ -20,7 +20,7 @@ func drawCircle(x float64, y float64, radius float64, dc *gg.Context) {
 	dc.SetRGB255(int(radius)%8*32, 0, int(radius)%64*128)
 	dc.DrawCircle(x, y, radius)
 	dc.Stroke()
-	if radius > 10 {
+	if radius > 1 {
 		radius /= float64(div)
 		//x
 		drawCircle((x + radius), y, radius, dc)
