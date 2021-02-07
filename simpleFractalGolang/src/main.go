@@ -52,9 +52,9 @@ func init() {
 	flag.BoolVar(&xy, "xy", false, "xy")
 	flag.BoolVar(&help, "help", false, "h")
 
-	flag.IntVar(&div, "div", 2, "division of radius")
-	flag.IntVar(&width, "w", 1000, "widht of the image")
-	flag.IntVar(&height, "h", 500, "height of image")
+	flag.IntVar(&div, "div", 2, "division")
+	flag.IntVar(&width, "w", 1000, "width")
+	flag.IntVar(&height, "h", 500, "height")
 
 	flag.Float64Var(&rad, "r", 100, "radius")
 
